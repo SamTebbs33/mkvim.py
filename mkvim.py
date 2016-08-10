@@ -2,7 +2,6 @@ import argparse, shutil, os
 
 parser = argparse.ArgumentParser(description="Create a vim profile")
 parser.add_argument("profile_name", metavar="name", type=str, help="the name of the profile to generate")
-# parser.add_argument("-c", "--clean", help="clean all previously made aliases", action="store_true")
 parser.add_argument("--vimrc-template", help="alternative vimrc template file (default \'vimrc_template\')", type=str, metavar="file", default="vimrc_template")
 parser.add_argument("--vim-template", help="alternative vim template directory (default \'vim_template\')", type=str, metavar="dir", default="vim_template")
 parser.add_argument("--aliases", help="file to write the new alias to (default \'~/.vim_aliases\')", type=str, metavar="file", default="~/.vim_aliases")
@@ -37,8 +36,6 @@ if not os.path.exists(vim_aliases):
     open(vim_aliases, "w+")
 if not os.path.exists(profile_name):
     os.makedirs(profile_name)
-
-print("Making profile: " + profile_name)
 
 # Write alias
 dir_path = os.path.dirname(os.path.realpath(__file__))
